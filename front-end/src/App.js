@@ -5,6 +5,7 @@ import Home from "./components/Home.js";
 import Cameras from "./containers/Cameras.js";
 import Lens from "./containers/Lens.js";
 import NotFound from "./components/NotFound.js";
+import VaultLogo from "./images/safe.png"
 
 class App extends React.Component {
   state = {
@@ -57,7 +58,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>app</h2>
+          <h2>
+            Gear Vault 
+            <img src={VaultLogo} id="Vault"></img>
+          </h2>
+          <button className="My_Kits">My Kits</button>
         </header>
         <main>
           <Switch>
