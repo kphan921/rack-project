@@ -3,9 +3,6 @@ Camera.destroy_all
 Len.destroy_all
 Kit.destroy_all
 
-fl = [12, 35, 50, 85, 135]
-a = [1.2, 1.4, 2, 2.2, 4]
-
 
  #brands
 Brand.create(name: "Canon")
@@ -22,18 +19,9 @@ Brand.create(name: "Fujifilm")
 }
 
 #lens
-12.times {
-    Len.create(
-    model: Faker::Creature::Cat.name,
-    focal_length: fl.sample,  
-    aperture: a.sample,
-    camera_id: Camera.ids.sample
+12.times {Len.create(
+    model: Faker::Creature::Cat.name 
     )
 }
 
-#kit
-10.times {
-    Kit.create(
-    camera_id: Camera.ids.sample,
-    len_id: Len.ids.sample
-)}
+60.times {Appointment.create(cost: Faker::Commerce.price, veterinarian_id: Veterinarian.ids.sample, pet_id: Pet.ids.sample )}

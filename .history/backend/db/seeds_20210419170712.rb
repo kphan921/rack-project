@@ -25,8 +25,8 @@ Brand.create(name: "Fujifilm")
 12.times {
     Len.create(
     model: Faker::Creature::Cat.name,
-    focal_length: fl.sample,  
-    aperture: a.sample,
+    focal_length: fl.rand,  
+    aperture: a.rand,
     camera_id: Camera.ids.sample
     )
 }

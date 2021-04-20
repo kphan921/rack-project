@@ -22,18 +22,12 @@ Brand.create(name: "Fujifilm")
 }
 
 #lens
-12.times {
-    Len.create(
+12.times {Len.create(
     model: Faker::Creature::Cat.name,
-    focal_length: fl.sample,  
-    aperture: a.sample,
-    camera_id: Camera.ids.sample
+    focal_length: fl.rand  
+    aperture: a.rand
+    brand_id: 
     )
 }
 
-#kit
-10.times {
-    Kit.create(
-    camera_id: Camera.ids.sample,
-    len_id: Len.ids.sample
-)}
+60.times {Appointment.create(cost: Faker::Commerce.price, veterinarian_id: Veterinarian.ids.sample, pet_id: Pet.ids.sample )}
