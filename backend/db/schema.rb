@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_232812) do
   end
 
   create_table "lens", force: :cascade do |t|
-    t.float "aperture"
-    t.integer "focal_length"
+    t.string "aperture"
+    t.string "focal_length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

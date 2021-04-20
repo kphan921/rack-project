@@ -5,7 +5,7 @@ class Application
     req = Rack::Request.new(env)
 
 
-    if req.path.match(/test/) 
+    if req.path.match(/gears/) 
       cameras = Camera.all
       lens = Len.all
       return [200, { 'Content-Type' => 'application/json' }, [ {:cameras => cameras, :lens => lens}.to_json ]]

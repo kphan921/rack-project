@@ -1,32 +1,50 @@
 import React from "react";
 import "./App.css";
-import { Redirect, Switch, Route } from 'react-router-dom'
-import Home from './components/Home.js'
-import NotFound from './components/NotFound.js'
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home.js";
+import Cameras from "./containers/Cameras.js";
+import Lens from "./containers/Lens.js";
+import NotFound from "./components/NotFound.js";
 
 class App extends React.Component {
   state = {
     cameras: [],
-    lens: []
+    lens: [],
   };
 
   componentDidMount() {
-    fetch("http://localhost:9393/tasks")
-    .then(res => res.json())
-    .then(json => this.setState({cameras: json.cameras, lens: json.lens }))
+    fetch("http://localhost:9393/gears/")
+      .then((res) => res.json())
+      // .then(json=> console.log(json))
+      .then((json) =>
+        this.setState({ cameras: json.cameras, lens: json.lens })
+      );
   }
 
   render() {
+    console.log(this.state.cameras);
     return (
       <div className="App">
         <header className="App-header">
-          <h2>
-            app
-          </h2>
+          <h2>app</h2>
         </header>
         <main>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/cameras"
+              render={() => {
+                return <Cameras cameras={this.state.cameras} />;
+              }}
+            />
+            <Route
+              exact
+              path="/lens"
+              render={() => {
+                return <Lens lens={this.state.lens} />;
+              }}
+            />
             <Route component={NotFound} />
           </Switch>
         </main>
