@@ -12,18 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_04_19_232812) do
 
-  create_table "brands", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cameras", force: :cascade do |t|
     t.string "model"
-    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_cameras_on_brand_id"
   end
 
   create_table "kits", force: :cascade do |t|
@@ -36,13 +28,10 @@ ActiveRecord::Schema.define(version: 2021_04_19_232812) do
   end
 
   create_table "lens", force: :cascade do |t|
-    t.string "model"
-    t.integer "camera_id"
     t.float "aperture"
     t.integer "focal_length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["camera_id"], name: "index_lens_on_camera_id"
   end
 
 end

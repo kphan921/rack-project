@@ -9,7 +9,7 @@ Camera.create(model: "EOS R5")
 Camera.create(model: "EOS R6")
 Camera.create(model: "EOS 5D Mark IV")
 Camera.create(model: "EOS 6D Mark III")
-Camera.create(model: "EOS 80D")
+Camera.create(model: "EOS 80D"
 Camera.create(model: "Z 7II")
 Camera.create(model: "D850")
 Camera.create(model: "Z50")
@@ -43,6 +43,16 @@ Len.create(focal_length:"8mm", aperture:"3")
 Len.create(focal_length:"70-200mm", aperture:"f/2.8")
 Len.create(focal_length:"130mm", aperture:"f/2")
 
+
+
+# 12.times {
+#     Len.create(
+#     model: Faker::Creature::Cat.name,
+#     focal_length: fl.sample,  
+#     aperture: a.sample,
+#     camera_id: Camera.ids.sample
+#     )
+# }
 
 #kit
 10.times {

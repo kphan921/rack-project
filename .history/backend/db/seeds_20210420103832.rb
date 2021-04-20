@@ -9,7 +9,7 @@ Camera.create(model: "EOS R5")
 Camera.create(model: "EOS R6")
 Camera.create(model: "EOS 5D Mark IV")
 Camera.create(model: "EOS 6D Mark III")
-Camera.create(model: "EOS 80D")
+Camera.create(model: "EOS 80D"
 Camera.create(model: "Z 7II")
 Camera.create(model: "D850")
 Camera.create(model: "Z50")
