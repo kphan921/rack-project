@@ -7,10 +7,13 @@ import NotFound from './components/NotFound.js'
 class App extends React.Component {
   state = {
     cameras: [],
+    lens: []
   };
 
   componentDidMount() {
-    console.log('Hi')
+    fetch("http://localhost:9393/tasks")
+    .then(res => res.json())
+    .then(json => this.setState({cameras: json.cameras, lens: json.lens }))
   }
 
   render() {
