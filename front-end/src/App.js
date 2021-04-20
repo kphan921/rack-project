@@ -10,6 +10,9 @@ class App extends React.Component {
   state = {
     cameras: [],
     lens: [],
+    model: "",
+    forcal_length: "",
+    aperture: "",
   };
 
   componentDidMount() {
@@ -21,8 +24,36 @@ class App extends React.Component {
       );
   }
 
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleAddCamera = (e) => {
+    e.preventDefault();
+    console.log("Hi");
+    let reqPackage = {
+      headers: {"Content-Type":"application/json"},
+      method: "POST",
+      body: JSON.stringify({model: this.state.model})
+    }
+
+    fetch("http://localhost:9393/cameras/", reqPackage)
+    .then(res => res.json())
+    .then(camera => {
+      this.setState({
+        cameras: [...this.state.camears, camera],
+      })
+    })
+  };
+
+  handleAddLen =(e) => {
+    e.preventDefault();
+    console.log("Hi");
+  }
+
   render() {
-    console.log(this.state.cameras);
     return (
       <div className="App">
         <header className="App-header">
@@ -35,14 +66,26 @@ class App extends React.Component {
               exact
               path="/cameras"
               render={() => {
-                return <Cameras cameras={this.state.cameras} />;
+                return (
+                  <Cameras
+                    cameras={this.state.cameras}
+                    handleChange={this.handleChange}
+                    handleAddCamera={this.handleAddCamera}
+                  />
+                );
               }}
             />
             <Route
               exact
               path="/lens"
               render={() => {
-                return <Lens lens={this.state.lens} />;
+                return (
+                  <Lens
+                    lens={this.state.lens}
+                    handleChange={this.handleChange}
+                    handleAddLen={this.handleAddLen}
+                  />
+                );
               }}
             />
             <Route component={NotFound} />
