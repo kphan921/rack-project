@@ -59,7 +59,7 @@ class App extends React.Component {
         <header className="App-header">
           <h2>
             Gear Vault 
-            <img src={VaultLogo} id="Vault"></img>
+            <img src={VaultLogo} alt="vault img" id="Vault"></img>
           </h2>
           <button className="My_Kits">My Kits</button>
         </header>

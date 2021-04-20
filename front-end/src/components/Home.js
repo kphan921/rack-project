@@ -10,11 +10,11 @@ const Home=() => {
     return (
         <div>
             <Button component={Link} to="/cameras"> 
-                <img src={camera_logo}></img>
+                <img src={camera_logo} alt="camera"></img>
              </Button>
             <div></div>
             <Button component={Link} to="/lens"> 
-                <img src={lens_logo}></img>
+                <img src={lens_logo} alt="lens"></img>
              </Button>
         </div>
     )
