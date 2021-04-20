@@ -9,6 +9,8 @@ class Application
       cameras = Camera.all
       lens = Len.all
       return [200, { 'Content-Type' => 'application/json' }, [ {:cameras => cameras, :lens => lens}.to_json ]]
+    
+    elsif req.path.match(/lens/) && req.post?
 
     elsif req.path.match(/cameras/) && req.post?
 
