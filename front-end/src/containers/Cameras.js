@@ -4,15 +4,15 @@ import Camera from "../components/Camera.js";
 const Cameras = (props) => {
   return (
     <div>
-      <form className="form">
+      <form onSubmit={props.handleAddCamera} className="form">
         <input
-          onChange={(e) => props.handleChange()}
+          onChange={(e) => props.handleChange(e)}
           placeholder="Camera Model"
           name="model"
           type="text"
         ></input>
         <input
-          onClick={props.handleAddCamera}
+          name="submit"
           type="submit"
           value="Add Camera"
         ></input>

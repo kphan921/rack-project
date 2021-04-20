@@ -32,7 +32,6 @@ class App extends React.Component {
 
   handleAddCamera = (e) => {
     e.preventDefault();
-    console.log("Hi");
     let reqPackage = {
       headers: {"Content-Type":"application/json"},
       method: "POST",
@@ -43,7 +42,7 @@ class App extends React.Component {
     .then(res => res.json())
     .then(camera => {
       this.setState({
-        cameras: [...this.state.camears, camera],
+        cameras: [...this.state.cameras, camera],
       })
     })
   };
