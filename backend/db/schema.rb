@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_232812) do
   end
 
   create_table "kits", force: :cascade do |t|
+    t.string "name"
     t.integer "camera_id"
     t.integer "len_id"
     t.datetime "created_at", null: false
