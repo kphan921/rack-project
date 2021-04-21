@@ -25,13 +25,13 @@ class Application
       return [200, { 'Content-Type' => 'application/json' }, [ res_camera.to_json ]]   
 
 
-    elsif req.delete?
+    elsif req.path.match(/lens/) && req.delete?
       id = req.path.split("/lens/").last
       Len.find(id).delete
 
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "Task deleted!"}.to_json ]]
 
-    elsif req.delete?
+    elsif req.path.match(/cameras/) && req.delete?
       id = req.path.split("/cameras/").last
       Camera.find(id).delete
 
