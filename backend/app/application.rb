@@ -15,17 +15,33 @@ class Application
     
     elsif req.path.match(/lens/) && req.post?
       data = JSON.parse req.body.read
-      len = Len.create(focal_length: data["focal_length"], aperture: data["aperture"])
-      res_len = {id: len.id, focal_length: len.focal_length, aperture: len.aperture}
+      len = Len.create(brand: data["brand"], image: data["image"], focal_length: data["focal_length"], aperture: data["aperture"])
+      res_len = {id: len.id, brand: len.brand, image: len.image, focal_length: len.focal_length, aperture: len.aperture}
 
       return [200, { 'Content-Type' => 'application/json' }, [ res_len.to_json ]] 
 
     elsif req.path.match(/cameras/) && req.post?
       data = JSON.parse req.body.read
-      camera = Camera.create(model: data["model"])
-      res_camera = {id: camera.id, model: camera.model}
+      camera = Camera.create(model: data["model"], brand: data["brand"], image: data["image"])
+      res_camera = {id: camera.id, model: camera.model, brand: camera.brand, image: camera.image}
 
-      return [200, { 'Content-Type' => 'application/json' }, [ res_camera.to_json ]]   
+      return [200, { 'Content-Type' => 'application/json' }, [ res_camera.to_json ]]
+
+    elsif req.path.match(/cameras/) && req.patch?
+      id = req.path.split("/cameras/").last
+      camera = Camera.find(id)
+      data = JSON.parse req.body.read
+      camera.update(data)
+
+      return [200, { 'Content-Type' => 'application/json' }, [ camera.to_json ]]  
+
+    elsif req.path.match(/lens/) && req.patch?
+      id = req.path.split("/lens/").last
+      len = Len.find(id)
+      data = JSON.parse req.body.read
+      len.update(data)
+
+      return [200, { 'Content-Type' => 'application/json' }, [ len.to_json ]]   
 
 
     elsif req.path.match(/lens/) && req.delete?

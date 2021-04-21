@@ -50,7 +50,7 @@ class App extends React.Component {
         model: this.state.model,
         image: this.state.image,
         brand: this.state.brand,
-        usage: 0
+        usage: 0,
       }),
     };
 
@@ -75,6 +75,26 @@ class App extends React.Component {
 
   handleCameraUsage = (camera) => {
     console.log("Hi");
+    let updateCamera = { usage: camera.usage + 1 };
+    let reqPackage = {
+      headers: { "Content-Type": "application/json" },
+      method: "PATCH",
+      body: JSON.stringify(updateCamera),
+    };
+
+    fetch(`http://localhost:9393/cameras/${camera.id}`, reqPackage)
+      .then((res) => res.json())
+      .then((updateCamera) => {
+        this.setState({
+          cameras: [
+            ...this.state.cameras.map((camera) =>
+              Number(camera.id) === Number(updateCamera.id)
+                ? updateCamera
+                : camera
+            ),
+          ],
+        });
+      });
   };
 
   handleAddLen = (e) => {
@@ -102,7 +122,25 @@ class App extends React.Component {
   };
 
   handleLenUsage = (len) => {
-    console.log("Hi");
+    let updateLen = { usage: len.usage + 1 };
+    let reqPackage = {
+      headers: { "Content-Type": "application/json" },
+      method: "PATCH",
+      body: JSON.stringify(updateLen),
+    };
+
+    fetch(`http://localhost:9393/lens/${len.id}`, reqPackage)
+      .then((res) => res.json())
+      .then((updateLen) => {
+        console.log(updateLen);
+        this.setState({
+          lens: [
+            ...this.state.lens.map((len) =>
+              Number(len.id) === Number(updateLen.id) ? updateLen : len
+            ),
+          ],
+        });
+      });
   };
 
   handleDeleteLen = (deleteLen) => {
