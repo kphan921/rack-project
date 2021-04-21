@@ -3,11 +3,12 @@ import React from 'react'
 const Camera = (props) => {
     return (
         <div>
-            <h4>{props.camera.model}</h4>
-
-
-            <button onClick={(e)=> props.handleDeleteCamera(e, props.camera)}>Remove</button>
-
+            <h4>{props.camera.brand}</h4>
+            <img src={props.camera.image} alt="camera" />
+            <h5>{props.camera.model}</h5>
+            <button onClick={()=>props.handleCameraUsage(props.camera)}>Usage:  {props.camera.usage}</button>
+            <button onClick={()=> props.handleDeleteCamera(props.camera)}>Remove</button>
+            <br/>
         </div>
 
     )

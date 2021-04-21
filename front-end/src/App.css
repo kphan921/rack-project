@@ -55,4 +55,15 @@ html{
   background-color: #0D1821;
 }
 
+.display {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
 

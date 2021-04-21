@@ -7,6 +7,18 @@ const Lens = (props) => {
       <form onSubmit={props.handleAddLen} className="form">
         <input
           onChange={(e) => props.handleChange(e)}
+          placeholder="Lens brand"
+          name="brand"
+          type="text"
+        ></input>
+        <input
+          onChange={(e) => props.handleChange(e)}
+          placeholder="Lens image"
+          name="image"
+          type="text"
+        ></input>
+        <input
+          onChange={(e) => props.handleChange(e)}
           placeholder="Lens focal length"
           name="focal_length"
           type="text"
@@ -19,9 +31,16 @@ const Lens = (props) => {
         ></input>
         <input type="submit" value="Add Lens"></input>
       </form>
-      {props.lens.map((len) => (
-        <Len key={len.id} len={len} handleDeleteLen={props.handleDeleteLen} />
-      ))}
+      <div className="container">
+        {props.lens.map((len) => (
+          <Len
+            key={len.id}
+            len={len}
+            handleLenUsage={props.handleLenUsage}
+            handleDeleteLen={props.handleDeleteLen}
+          />
+        ))}
+      </div>
     </div>
   );
 };

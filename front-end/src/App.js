@@ -7,8 +7,7 @@ import Lens from "./containers/Lens.js";
 import NotFound from "./components/NotFound.js";
 import VaultLogo from "./images/safe.png";
 import Kits from "./containers/Kits.js";
-import { Button } from '@material-ui/core';
-
+import { Button } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
@@ -16,20 +15,24 @@ class App extends React.Component {
     lens: [],
     kits: [],
     model: "",
+    brand: "",
+    image: "",
     focal_length: "",
     aperture: "",
   };
-
 
   componentDidMount() {
     fetch("http://localhost:9393/gears/")
       .then((res) => res.json())
       // .then(json=> console.log(json))
       .then((json) =>
-        this.setState({ cameras: json.cameras, lens: json.lens, kits: json.kits })
+        this.setState({
+          cameras: json.cameras,
+          lens: json.lens,
+          kits: json.kits,
+        })
       );
   }
-
 
   handleChange = (e) => {
     this.setState({
@@ -43,7 +46,12 @@ class App extends React.Component {
     let reqPackage = {
       headers: { "Content-Type": "application/json" },
       method: "POST",
-      body: JSON.stringify({ model: this.state.model }),
+      body: JSON.stringify({
+        model: this.state.model,
+        image: this.state.image,
+        brand: this.state.brand,
+        usage: 0
+      }),
     };
 
     fetch("http://localhost:9393/cameras/", reqPackage)
@@ -55,7 +63,7 @@ class App extends React.Component {
       });
   };
 
-  handleDeleteCamera = (e, deleteCamera) => {
+  handleDeleteCamera = (deleteCamera) => {
     fetch("http://localhost:9393/cameras/" + deleteCamera.id, {
       method: "DELETE",
     });
@@ -65,6 +73,10 @@ class App extends React.Component {
     });
   };
 
+  handleCameraUsage = (camera) => {
+    console.log("Hi");
+  };
+
   handleAddLen = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -72,8 +84,11 @@ class App extends React.Component {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({
+        image: this.state.image,
+        brand: this.state.brand,
         focal_length: this.state.focal_length,
         aperture: this.state.aperture,
+        usage: 0,
       }),
     };
 
@@ -86,7 +101,11 @@ class App extends React.Component {
       });
   };
 
-  handleDeleteLen = (e, deleteLen) => {
+  handleLenUsage = (len) => {
+    console.log("Hi");
+  };
+
+  handleDeleteLen = (deleteLen) => {
     fetch("http://localhost:9393/lens/" + deleteLen.id, {
       method: "DELETE",
     });
@@ -104,7 +123,9 @@ class App extends React.Component {
             Gear Vault
             <img src={VaultLogo} alt="vault img" id="Vault"></img>
           </Link>
-          <Button id="My_Kits" component={Link} to="/kits" >My Kits</Button>
+          <Button id="My_Kits" component={Link} to="/kits">
+            My Kits
+          </Button>
         </header>
         <main>
           <Switch>
@@ -118,6 +139,7 @@ class App extends React.Component {
                     cameras={this.state.cameras}
                     handleChange={this.handleChange}
                     handleAddCamera={this.handleAddCamera}
+                    handleCameraUsage={this.handleCameraUsage}
                     handleDeleteCamera={this.handleDeleteCamera}
                   />
                 );
@@ -132,6 +154,7 @@ class App extends React.Component {
                     lens={this.state.lens}
                     handleChange={this.handleChange}
                     handleAddLen={this.handleAddLen}
+                    handleLenUsage={this.handleLenUsage}
                     handleDeleteLen={this.handleDeleteLen}
                   />
                 );
