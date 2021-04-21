@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home.js";
 import Cameras from "./containers/Cameras.js";
 import Lens from "./containers/Lens.js";
@@ -57,10 +57,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Link className="Main-Logo" to="/">
+          <h2 onClick={window.location='/'}>
             Gear Vault 
             <img src={VaultLogo} alt="vault img" id="Vault"></img>
-          </Link>
+          </h2>
           <button className="My_Kits">My Kits</button>
         </header>
         <main>

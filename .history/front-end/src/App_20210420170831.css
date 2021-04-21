@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-header {
+.Main-Logo {
   background-color: #F1FFFA;
   min-height: 5vh;
   display: flex;
@@ -12,17 +12,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: calc(10px + 2vmin);
   color: #FF3864;
-  padding-bottom: 15px;
-  padding-top: 13px;
-}
-
-.Main-Logo{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #FF3864;
-  padding-top: 50 px;
-  text-decoration: none;
-  font-weight: bold;
-
+  margin-top: -10px;
 }
 
 .App-link {
@@ -42,6 +32,7 @@
   width: 50px;
   height: 50px;
   padding-left: 10px;
+  
 }
 
 Main{

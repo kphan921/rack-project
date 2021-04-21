@@ -56,8 +56,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Link className="Main-Logo" to="/">
+        <header id="App-header">
+          <Link to="/">
             Gear Vault 
             <img src={VaultLogo} alt="vault img" id="Vault"></img>
           </Link>
