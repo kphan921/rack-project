@@ -3,7 +3,7 @@ class Kit < ActiveRecord::Base
     belongs_to :len
 
     def self.list 
-        self.all.map{|kit| [kit.camera, kit.len]}
+        self.map{|kit| [kit.camera, kit.len]}
     end
 
 end

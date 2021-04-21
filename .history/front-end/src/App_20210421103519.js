@@ -8,7 +8,6 @@ import NotFound from "./components/NotFound.js";
 import VaultLogo from "./images/safe.png";
 import Kits from "./containers/Kits.js";
 
-
 class App extends React.Component {
   state = {
     cameras: [],
@@ -19,16 +18,14 @@ class App extends React.Component {
     aperture: "",
   };
 
-
   componentDidMount() {
     fetch("http://localhost:9393/gears/")
       .then((res) => res.json())
       // .then(json=> console.log(json))
       .then((json) =>
-        this.setState({ cameras: json.cameras, lens: json.lens, kits: json.kits })
+        this.setState({ cameras: json.cameras, lens: json.lens })
       );
   }
-
 
   handleChange = (e) => {
     this.setState({
@@ -38,69 +35,44 @@ class App extends React.Component {
 
   handleAddCamera = (e) => {
     e.preventDefault();
-    e.target.reset();
     let reqPackage = {
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type":"application/json"},
       method: "POST",
-      body: JSON.stringify({ model: this.state.model }),
-    };
+      body: JSON.stringify({model: this.state.model})
+    }
 
     fetch("http://localhost:9393/cameras/", reqPackage)
-      .then((res) => res.json())
-      .then((camera) => {
-        this.setState({
-          cameras: [...this.state.cameras, camera],
-        });
-      });
+    .then(res => res.json())
+    .then(camera => {
+      this.setState({
+        cameras: [...this.state.cameras, camera],
+      })
+    })
   };
 
-  handleDeleteCamera = (e, deleteCamera) => {
-    fetch("http://localhost:9393/cameras/" + deleteCamera.id, {
-      method: "DELETE",
-    });
-
-    this.setState({
-      cameras: this.state.cameras.filter((camera) => camera !== deleteCamera),
-    });
-  };
-
-  handleAddLen = (e) => {
+  handleAddLen =(e) => {
     e.preventDefault();
-    e.target.reset();
     let reqPackage = {
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type":"application/json"},
       method: "POST",
-      body: JSON.stringify({
-        focal_length: this.state.focal_length,
-        aperture: this.state.aperture,
-      }),
-    };
+      body: JSON.stringify({focal_length: this.state.focal_length, aperture: this.state.aperture})
+    }
 
     fetch("http://localhost:9393/lens/", reqPackage)
-      .then((res) => res.json())
-      .then((len) => {
-        this.setState({
-          lens: [...this.state.lens, len],
-        });
-      });
-  };
-
-  handleDeleteLen = (e, deleteLen) => {
-    fetch("http://localhost:9393/lens/" + deleteLen.id, {
-      method: "DELETE",
-    });
-
-    this.setState({
-      lens: this.state.lens.filter((len) => len !== deleteLen),
-    });
-  };
+    .then(res => res.json())
+    .then(len => {
+      this.setState({
+        lens: [...this.state.lens, len],
+      })
+    })
+  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <Link className="Main-Logo" to="/">
-            Gear Vault
+            Gear Vault 
             <img src={VaultLogo} alt="vault img" id="Vault"></img>
           </Link>
           <button className="My_Kits">My Kits</button>
@@ -117,7 +89,6 @@ class App extends React.Component {
                     cameras={this.state.cameras}
                     handleChange={this.handleChange}
                     handleAddCamera={this.handleAddCamera}
-                    handleDeleteCamera={this.handleDeleteCamera}
                   />
                 );
               }}
@@ -131,7 +102,6 @@ class App extends React.Component {
                     lens={this.state.lens}
                     handleChange={this.handleChange}
                     handleAddLen={this.handleAddLen}
-                    handleDeleteLen={this.handleDeleteLen}
                   />
                 );
               }}
@@ -144,7 +114,6 @@ class App extends React.Component {
                   <Kits
                     cameras={this.state.cameras}
                     lens={this.state.lens}
-                    kits={this.state.kits}
                   />
                 );
               }}

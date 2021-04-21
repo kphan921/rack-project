@@ -8,10 +8,8 @@ class Application
     if req.path.match(/gears/) 
       cameras = Camera.all
       lens = Len.all
-      kits = Kit.list
-      
-      
-      return [200, { 'Content-Type' => 'application/json' }, [ {:cameras => cameras, :lens => lens, :kits => kits}.to_json ]]
+      kits = Kit.all
+      return [200, { 'Content-Type' => 'application/json' }, [ {:cameras => cameras, :lens => lens}.to_json ]]
     
     elsif req.path.match(/lens/) && req.post?
       data = JSON.parse req.body.read
@@ -28,13 +26,13 @@ class Application
       return [200, { 'Content-Type' => 'application/json' }, [ res_camera.to_json ]]   
 
 
-    elsif req.path.match(/lens/) && req.delete?
+    elsif req.delete?
       id = req.path.split("/lens/").last
       Len.find(id).delete
 
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "Task deleted!"}.to_json ]]
 
-    elsif req.path.match(/cameras/) && req.delete?
+    elsif req.delete?
       id = req.path.split("/cameras/").last
       Camera.find(id).delete
 
