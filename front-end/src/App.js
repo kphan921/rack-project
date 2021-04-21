@@ -12,7 +12,7 @@ class App extends React.Component {
     cameras: [],
     lens: [],
     model: "",
-    forcal_length: "",
+    focal_length: "",
     aperture: "",
   };
 
@@ -50,7 +50,19 @@ class App extends React.Component {
 
   handleAddLen =(e) => {
     e.preventDefault();
-    console.log("Hi");
+    let reqPackage = {
+      headers: {"Content-Type":"application/json"},
+      method: "POST",
+      body: JSON.stringify({focal_length: this.state.focal_length, aperture: this.state.aperture})
+    }
+
+    fetch("http://localhost:9393/lens/", reqPackage)
+    .then(res => res.json())
+    .then(len => {
+      this.setState({
+        lens: [...this.state.lens, len],
+      })
+    })
   }
 
   render() {
