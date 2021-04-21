@@ -61,6 +61,7 @@ class App extends React.Component {
 
   handleAddLen = (e) => {
     e.preventDefault();
+    e.target.reset();
     let reqPackage = {
       headers: { "Content-Type": "application/json" },
       method: "POST",
