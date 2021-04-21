@@ -18,7 +18,6 @@ class App extends React.Component {
     aperture: "",
   };
 
-
   componentDidMount() {
     fetch("http://localhost:9393/gears/")
       .then((res) => res.json())
@@ -27,7 +26,6 @@ class App extends React.Component {
         this.setState({ cameras: json.cameras, lens: json.lens, kits: json.kits })
       );
   }
-
 
   handleChange = (e) => {
     this.setState({
@@ -116,7 +114,6 @@ class App extends React.Component {
                   <Kits
                     cameras={this.state.cameras}
                     lens={this.state.lens}
-                    kits={this.state.kits}
                   />
                 );
               }}

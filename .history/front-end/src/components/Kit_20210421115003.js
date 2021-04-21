@@ -5,7 +5,6 @@ export default function Kit(props) {
         <div>
             <h4>Kit {props.key}</h4>
             <div>{props.kit[0].model}</div>
-            <div>{props.kit[1].focal_length}, {props.kit[1].aperture} </div>
          
     
         </div>

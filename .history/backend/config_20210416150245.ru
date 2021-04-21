@@ -5,7 +5,7 @@ use Rack::Cors do
 
     allow do
         origins '*'
-        resource '/*', headers: :any, methods: [:get, :post, :patch, :put, :delete]  
+        resource '/*', headers: :any, methods: [:get, :post, :patch, :put, :options]  
     end
 end
 

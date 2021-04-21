@@ -8,9 +8,7 @@ class Application
     if req.path.match(/gears/) 
       cameras = Camera.all
       lens = Len.all
-      kits = Kit.list
-      
-      
+      kits = Kit.all
       return [200, { 'Content-Type' => 'application/json' }, [ {:cameras => cameras, :lens => lens, :kits => kits}.to_json ]]
     
     elsif req.path.match(/lens/) && req.post?

@@ -12,22 +12,19 @@ class App extends React.Component {
   state = {
     cameras: [],
     lens: [],
-    kits: [],
     model: "",
     focal_length: "",
     aperture: "",
   };
-
 
   componentDidMount() {
     fetch("http://localhost:9393/gears/")
       .then((res) => res.json())
       // .then(json=> console.log(json))
       .then((json) =>
-        this.setState({ cameras: json.cameras, lens: json.lens, kits: json.kits })
+        this.setState({ cameras: json.cameras, lens: json.lens })
       );
   }
-
 
   handleChange = (e) => {
     this.setState({
@@ -116,7 +113,6 @@ class App extends React.Component {
                   <Kits
                     cameras={this.state.cameras}
                     lens={this.state.lens}
-                    kits={this.state.kits}
                   />
                 );
               }}

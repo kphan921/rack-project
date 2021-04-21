@@ -28,6 +28,13 @@ class App extends React.Component {
       );
   }
 
+  renderKit = () => {
+    this.state.kits.map((kit) => {
+      this.state.cameras.find((camera)=> {
+        camera.id == kit.camera_id
+      })
+    })
+  }
 
   handleChange = (e) => {
     this.setState({
