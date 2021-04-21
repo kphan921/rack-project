@@ -48,10 +48,10 @@ Len.create(focal_length:"105mm", aperture:"f/1.4", brand: "Nikon", usage: 0, ima
 
 
 #kit
-Kit.create(name:"Kit 1", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
-Kit.create(name:"Kit 2", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
-Kit.create(name:"Kit 3", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
-Kit.create(name:"Kit 4", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
-Kit.create(name:"Kit 5", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
-Kit.create(name:"Kit 6", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
-Kit.create(name:"Kit 7", camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 1" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 2" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 3" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 4" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 5" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 6" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
+Kit.create(name:"Kit 7" camera_id: Camera.ids.sample, len_id: Len.ids.sample)
