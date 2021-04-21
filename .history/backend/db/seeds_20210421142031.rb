@@ -31,7 +31,6 @@ Camera.create(model: "X-E4", brand: "Fujifilm", usage: 0, image: "https://static
 Len.create(focal_length:"14-24mm", aperture:"f/2.8", brand: "Nikon", usage: 0, image: "https://static.bhphoto.com/images/images500x500/nikon_nikkor_z_14_24mm_f_2_8_1600248027_1578224.jpg")
 Len.create(focal_length:"50mm", aperture:"f/1.4", brand: "Canon", usage: 0, image: "https://static.bhphoto.com/images/images500x500/Canon_2515A003_50mm_f_1_4_USM_Autofocus_1266238928_12140.jpg")
 Len.create(focal_length:"35mm", aperture:"f/1.8", brand: "Sony", usage: 0, image: "https://static.bhphoto.com/images/images500x500/sony_sel35f18f_35mm_f_1_8_fe_lens_1562666802_1492866.jpg")
-Len.create(focal_length:"56mm", aperture:"f/1.2", brand: "Fujifilm", usage: 0, image: "https://static.bhphoto.com/images/images500x500/fujifilm_xf_56mm_f_1_2_r_1388976657_1021630.jpg")
 Len.create(focal_length:"85mm", aperture:"f/1.4", brand: "Canon", usage: 0, image: "https://static.bhphoto.com/images/images500x500/canon_ef_85mm_f_1_4l_is_1503964256_1354803.jpg")
 Len.create(focal_length:"28-70mm", aperture:"f/2", brand: "Canon", usage: 0, image: "https://static.bhphoto.com/images/images500x500/canon_rf_28_70mm_f_2l_usm_1536121266_1433713.jpg")
 Len.create(focal_length:"20mm", aperture:"f/1.8", brand: "Sony", usage: 0, image: "https://static.bhphoto.com/images/images500x500/sony_sel20f18g_fe_20mm_f_1_8_g_1582633011_1549627.jpg")

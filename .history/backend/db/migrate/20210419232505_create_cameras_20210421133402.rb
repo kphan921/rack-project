@@ -4,7 +4,6 @@ class CreateCameras < ActiveRecord::Migration[5.2]
       t.string :brand
       t.string :model
       t.integer :usage
-      t.string :image
     
       t.timestamps
     end

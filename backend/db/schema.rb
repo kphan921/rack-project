@@ -13,7 +13,10 @@
 ActiveRecord::Schema.define(version: 2021_04_19_232812) do
 
   create_table "cameras", force: :cascade do |t|
+    t.string "brand"
     t.string "model"
+    t.integer "usage"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,8 +31,11 @@ ActiveRecord::Schema.define(version: 2021_04_19_232812) do
   end
 
   create_table "lens", force: :cascade do |t|
+    t.string "brand"
     t.string "aperture"
     t.string "focal_length"
+    t.integer "usage"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
