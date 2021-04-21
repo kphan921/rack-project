@@ -4,7 +4,7 @@ const Len = (props) => {
     return (
         <div>
             <h4>{props.len.focal_length} {props.len.aperture}</h4>
-            {/* <buton>Remove</buton> */}
+            <button>Remove</button>
         </div>
     )
 }
