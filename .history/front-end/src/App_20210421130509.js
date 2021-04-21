@@ -78,7 +78,7 @@ class App extends React.Component {
             Gear Vault 
             <img src={VaultLogo} alt="vault img" id="Vault"></img>
           </Link>
-          <Button id="My_Kits" component={Link} to="/kits" >My Kits</Button>
+          <Button component={Link} to="/kits"  className="My_Kits">My Kits</Button>
         </header>
         <main>
           <Switch>
