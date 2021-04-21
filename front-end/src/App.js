@@ -32,6 +32,7 @@ class App extends React.Component {
   };
 
   handleAddCamera = (e) => {
+    e.stopPropagation()
     e.preventDefault();
     let reqPackage = {
       headers: {"Content-Type":"application/json"},
@@ -48,6 +49,17 @@ class App extends React.Component {
     })
   };
 
+  handleDeleteCamera = (e, deleteCamera) => {
+    e.stopPropagation()
+    fetch("http://localhost:9393/cameras/"+deleteCamera.id, {
+      method: "DELETE",
+    })
+
+    this.setState({
+      cameras: this.state.cameras.filter(camera => camera !== deleteCamera)
+    })
+  }
+
   handleAddLen =(e) => {
     e.preventDefault();
     let reqPackage = {
@@ -63,6 +75,10 @@ class App extends React.Component {
         lens: [...this.state.lens, len],
       })
     })
+  }
+
+  handleDeleteLen = () => {
+    console.log('Hi')
   }
 
   render() {
@@ -87,6 +103,7 @@ class App extends React.Component {
                     cameras={this.state.cameras}
                     handleChange={this.handleChange}
                     handleAddCamera={this.handleAddCamera}
+                    handleDeleteCamera={this.handleAddCamera}
                   />
                 );
               }}
@@ -100,6 +117,7 @@ class App extends React.Component {
                     lens={this.state.lens}
                     handleChange={this.handleChange}
                     handleAddLen={this.handleAddLen}
+                    handleDeleteLen={this.handleDeleteLen}
                   />
                 );
               }}

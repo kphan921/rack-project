@@ -20,7 +20,7 @@ const Lens = (props) => {
         <input type="submit" value="Add Lens"></input>
       </form>
       {props.lens.map((len) => (
-        <Len key={len.id} len={len} />
+        <Len key={len.id} len={len} handleDeleteLen={props.handleDeleteLen} />
       ))}
     </div>
   );
