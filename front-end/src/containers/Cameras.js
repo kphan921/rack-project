@@ -11,14 +11,14 @@ const Cameras = (props) => {
           name="model"
           type="text"
         ></input>
-        <input
-          name="submit"
-          type="submit"
-          value="Add Camera"
-        ></input>
+        <input name="submit" type="submit" value="Add Camera"></input>
       </form>
       {props.cameras.map((camera) => (
-        <Camera key={camera.id} camera={camera} />
+        <Camera
+          key={camera.id}
+          camera={camera}
+          handleDeleteCamera={props.handleDeleteCamera}
+        />
       ))}
     </div>
   );
