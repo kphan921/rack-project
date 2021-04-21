@@ -5,7 +5,6 @@ class CreateLens < ActiveRecord::Migration[5.2]
       t.string :aperture
       t.string :focal_length
       t.integer :usage
-      t.string :image
       
       t.timestamps
     end
