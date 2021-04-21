@@ -2,7 +2,7 @@ import React from 'react'
 
 const Len = (props) => {
     return (
-        <div className="image_card">
+        <div>
             <h4>{props.len.brand}</h4>
             <img src={props.len.image} alt="len" className="stock_image"/>
             <h5>{props.len.focal_length} {props.len.aperture}</h5>

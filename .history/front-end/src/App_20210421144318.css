@@ -66,18 +66,9 @@ html{
   grid-template-columns: auto auto auto auto;
 }
 
-.image_card {
-  background-color: #234058;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .stock_image{
-  height: 200px;
-  width:200px;
+  height: 100px;
+  width:100px;
 }
 
-.kit_card{}
 

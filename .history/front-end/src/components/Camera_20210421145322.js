@@ -2,7 +2,7 @@ import React from 'react'
 
 const Camera = (props) => {
     return (
-        <div className="image_card">
+        <div>
             <h4>{props.camera.brand}</h4>
             <img src={props.camera.image} alt="camera" className="stock_image"/>
             <h5>{props.camera.model}</h5>
