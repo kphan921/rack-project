@@ -19,7 +19,7 @@ const Cameras = (props) => {
         ></input>
         <input
           onChange={(e) => props.handleChange(e)}
-          placeholder="Camera Image Link"
+          placeholder="Camera image link"
           name="image"
           type="text"
         ></input>

@@ -79,5 +79,7 @@ html{
   width:200px;
 }
 
-.kit_card{}
+.kit_card{
+  display: grid;
+  grid-template-columns: auto auto auto auto;}
 

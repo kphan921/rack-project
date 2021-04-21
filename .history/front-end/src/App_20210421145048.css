@@ -67,11 +67,7 @@ html{
 }
 
 .image_card {
-  background-color: #234058;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  background-color: blue;
 }
 
 .stock_image{
@@ -79,5 +75,4 @@ html{
   width:200px;
 }
 
-.kit_card{}
 
