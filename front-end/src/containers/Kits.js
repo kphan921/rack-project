@@ -22,6 +22,7 @@ const Kits = (props) => {
             );
           })}
         </select>
+
         <select required onChange={(e) => props.handleSelectLen(e)}>
           <option value="">Choose Lens</option>
           {props.lens.map((len) => {

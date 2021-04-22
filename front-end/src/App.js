@@ -42,18 +42,6 @@ class App extends React.Component {
     });
   };
 
-  handleSelectCam = (e) => {
-    this.setState({
-      camera_id: e.target.value,
-    });
-  }
-
-  handleSelectLen = (e) => {
-    this.setState({
-      len_id: e.target.value,
-    });
-  }
-
   handleAddCamera = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -76,6 +64,7 @@ class App extends React.Component {
         });
       });
   };
+  
 
   handleDeleteCamera = (deleteCamera) => {
     fetch("http://localhost:9393/cameras/" + deleteCamera.id, {
