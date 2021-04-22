@@ -4,9 +4,16 @@ import Kit from "../components/Kit.js";
 const Kits = (props) => {
   return (
     <div>
-      <form onSubmit={props.handleAddKit}>
-        <input onChange={(e)=>props.handleChange(e)} type="text" name="name" placeholder="Kit Name" />
-        <select onChange={(e)=>props.handleSelectCam(e)} name="camera_id">
+      <form className="kit_form" onSubmit={props.handleAddKit}>
+        <input
+          required
+          onChange={(e) => props.handleChange(e)}
+          type="text"
+          name="name"
+          placeholder="Kit Name"
+        />
+        <select required onChange={(e) => props.handleSelectCam(e)}>
+          <option value="">Choose Camera</option>
           {props.cameras.map((camera) => {
             return (
               <option key={camera.id} name="camera_id" value={camera.id}>
@@ -15,7 +22,9 @@ const Kits = (props) => {
             );
           })}
         </select>
-        <select onChange={(e)=>props.handleSelectLen(e)} name="len_id">
+
+        <select required onChange={(e) => props.handleSelectLen(e)}>
+          <option value="">Choose Lens</option>
           {props.lens.map((len) => {
             return (
               <option key={len.id} name="len_id" value={len.id}>
@@ -26,9 +35,9 @@ const Kits = (props) => {
         </select>
         <input type="submit" value="Add Kit"></input>
       </form>
-      {props.kits.map((kit) => 
-        <Kit key={kit.id} kit={kit} handleDeleteKit={props.handleDeleteKit}/>
-      )}
+      {props.kits.map((kit) => (
+        <Kit key={kit.id} kit={kit} handleDeleteKit={props.handleDeleteKit} />
+      ))}
     </div>
   );
 };

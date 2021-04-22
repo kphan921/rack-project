@@ -37,12 +37,10 @@ class App extends React.Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target.name, e.target.value)
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
-
 
   handleAddCamera = (e) => {
     e.preventDefault();
@@ -79,7 +77,6 @@ class App extends React.Component {
   };
 
   handleCameraUsage = (camera) => {
-    console.log("Hi");
     let updateCamera = { usage: camera.usage + 1 };
     let reqPackage = {
       headers: { "Content-Type": "application/json" },
@@ -137,7 +134,6 @@ class App extends React.Component {
     fetch(`http://localhost:9393/lens/${len.id}`, reqPackage)
       .then((res) => res.json())
       .then((updateLen) => {
-        console.log(updateLen);
         this.setState({
           lens: [
             ...this.state.lens.map((len) =>
@@ -161,7 +157,6 @@ class App extends React.Component {
   handleAddKit = (e) => {
     e.preventDefault();
     e.target.reset();
-    console.log("hi")
     let reqPackage = {
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -175,7 +170,6 @@ class App extends React.Component {
     fetch("http://localhost:9393/kits/", reqPackage)
       .then((res) => res.json())
       .then((kit) => {
-        console.log(kit)
         this.setState({
           kits: [...this.state.kits, kit],
         });

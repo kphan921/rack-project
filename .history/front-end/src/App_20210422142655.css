@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #F1FFFA;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: calc(10px + 2vmin);
+  color: #FF3864;
+  padding-bottom: 15px;
+  padding-top: 13px;
+}
+
+.Main-Logo{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #FF3864;
+  padding-top: 50 px;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#My_Kits {
+  position: absolute; right: 0;
+  width: 130px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #EFF6E0;
+}
+
+#Vault {
+  width: 50px;
+  height: 50px;
+  padding-left: 10px;
+}
+
+Main{
+  padding-top: 10px;
+  color: white;
+}
+
+html{
+  background-color: #0D1821;
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.image_card {
+  background-color: #234058;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.stock_image{
+  height: 200px;
+  width:200px;
+}
+
+.stock_image_small{
+  height: 140px;
+  width: 140px;
+}
+
+.kit_card{
+  display:grid;
+  grid-template-columns: auto auto auto auto;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background-color: #234058;
+  padding-top: 8px;
+  padding-bottom: 14px;
+}
+
+.kit_card_title{
+  background-color: #234058;
+  padding-top: 2px;
+}
