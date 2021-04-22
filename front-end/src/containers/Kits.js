@@ -12,7 +12,11 @@ const Kits = (props) => {
           name="name"
           placeholder="Kit Name"
         />
-        <select required onChange={(e) => props.handleSelectCam(e)}>
+        <select
+          required
+          name="camera_id"
+          onChange={(e) => props.handleChange(e)}
+        >
           <option value="">Choose Camera</option>
           {props.cameras.map((camera) => {
             return (
@@ -23,7 +27,7 @@ const Kits = (props) => {
           })}
         </select>
 
-        <select required onChange={(e) => props.handleSelectLen(e)}>
+        <select required name="len_id" onChange={(e) => props.handleChange(e)}>
           <option value="">Choose Lens</option>
           {props.lens.map((len) => {
             return (
