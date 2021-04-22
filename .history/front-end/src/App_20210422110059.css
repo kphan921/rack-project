@@ -86,9 +86,6 @@ html{
 
 .kit_card{
   display: flex;
-  align-content: center;
+  grid-template-columns: auto;
 }
 
-.kit_card2{
- display: block;
-}

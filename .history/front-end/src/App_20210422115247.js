@@ -43,6 +43,19 @@ class App extends React.Component {
     });
   };
 
+  handleSelectCam = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      camera_id: e.target.value,
+    });
+  }
+
+  handleSelectLen = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      len_id: e.target.value,
+    });
+  }
 
   handleAddCamera = (e) => {
     e.preventDefault();
@@ -66,7 +79,6 @@ class App extends React.Component {
         });
       });
   };
-  
 
   handleDeleteCamera = (deleteCamera) => {
     fetch("http://localhost:9393/cameras/" + deleteCamera.id, {
@@ -183,6 +195,7 @@ class App extends React.Component {
   };
 
   handleDeleteKit = (deleteKit) => {
+
     fetch("http://localhost:9393/kits/" + deleteKit.id, {
       method: "DELETE",
     });
@@ -193,6 +206,9 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.name)
+    console.log(this.state.camera_id)
+    console.log(this.state.len_id)
     return (
       <div className="App">
         <header className="App-header">

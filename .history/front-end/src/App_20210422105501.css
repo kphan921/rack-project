@@ -84,11 +84,5 @@ html{
   width: 140px;
 }
 
-.kit_card{
-  display: flex;
-  align-content: center;
-}
+.kit_card{}
 
-.kit_card2{
- display: block;
-}
