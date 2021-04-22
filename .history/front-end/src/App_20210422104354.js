@@ -195,7 +195,8 @@ class App extends React.Component {
   };
 
   handleDeleteKit = (deleteKit, id) => {
-    fetch("http://localhost:9393/kits/" + id, {
+    console.log(deleteKit, id)
+    fetch("http://localhost:9393/kits/" + deleteKit.id, {
       method: "DELETE",
     });
 
