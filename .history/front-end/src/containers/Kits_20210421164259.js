@@ -5,7 +5,7 @@ const Kits = (props) => {
   return (
     <div>
       <form>
-        <input type="text" name="kit_name" placeholder="Kit Name" onChange={(e)=>props.handleChange(e)}/>
+        <input type="text" name="Kit Name" />
         <select onChange={(e)=>props.handleChange(e)}>
           {props.cameras.map((camera) => {
             return (
@@ -24,11 +24,10 @@ const Kits = (props) => {
             );
           })}
         </select>
-        <input type="submit" value="Add Kit"></input>
       </form>
-      {props.kits.map((kit, idx) => 
-        <Kit key={idx} kit={kit} />
-      )}
+      {props.kits.map((kit) => (
+        <Kit key={kit.id} kit={kit} />
+      ))}
     </div>
   );
 };

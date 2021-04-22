@@ -29,10 +29,10 @@ class Application
 
     elsif req.path.match(/kits/) && req.post?
       data = JSON.parse req.body.read
-      kit= Kit.create(name: data["name"], camera_id: data["camera_id"], len_id: data["len_id"])
-      res_kit = {id: kit.id, name: kit.name, camera_id: kit.camera_id, len_id: kit.len_id}
+      camera = Kit.create(name: data["name"], camera_id: data["camera_id"], len_id: data["len_id"])
+      res_camera = {id: camera.id, model: camera.model, brand: camera.brand, image: camera.image}
 
-      return [200, { 'Content-Type' => 'application/json' }, [ res_kit.to_json ]]
+      return [200, { 'Content-Type' => 'application/json' }, [ res_camera.to_json ]]
 
     elsif req.path.match(/cameras/) && req.patch?
       id = req.path.split("/cameras/").last

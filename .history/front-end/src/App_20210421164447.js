@@ -156,28 +156,6 @@ class App extends React.Component {
     });
   };
 
-  handleAddKit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    let reqPackage = {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify({
-        kit_name: this.state.kit_name,
-        camera_id: this.state.camera_id,
-        len_id: this.state.len_id,
-      }),
-    };
-
-    fetch("http://localhost:9393/kits/", reqPackage)
-      .then((res) => res.json())
-      .then((kit) => {
-        this.setState({
-          kits: [...this.state.kits, kit],
-        });
-      });
-  };
-
   render() {
     return (
       <div className="App">

@@ -21,7 +21,6 @@ class App extends React.Component {
     aperture: "",
     camera_id: 0,
     len_id: 0,
-    kit_name: "",
   };
 
   componentDidMount() {
@@ -154,28 +153,6 @@ class App extends React.Component {
     this.setState({
       lens: this.state.lens.filter((len) => len !== deleteLen),
     });
-  };
-
-  handleAddKit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    let reqPackage = {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify({
-        kit_name: this.state.kit_name,
-        camera_id: this.state.camera_id,
-        len_id: this.state.len_id,
-      }),
-    };
-
-    fetch("http://localhost:9393/kits/", reqPackage)
-      .then((res) => res.json())
-      .then((kit) => {
-        this.setState({
-          kits: [...this.state.kits, kit],
-        });
-      });
   };
 
   render() {
