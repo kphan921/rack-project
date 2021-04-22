@@ -252,7 +252,6 @@ class App extends React.Component {
                     lens={this.state.lens}
                     kits={this.state.kits}
                     handleSelectCam={this.handleSelectCam}
-                    handleSelectLen={this.handleSelectLen}
                     handleAddKit={this.handleAddKit}
                     handleChange={this.handleChange}
                   />

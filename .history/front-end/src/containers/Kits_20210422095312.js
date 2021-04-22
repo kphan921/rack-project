@@ -15,7 +15,7 @@ const Kits = (props) => {
             );
           })}
         </select>
-        <select onChange={(e)=>props.handleSelectLen(e)}>
+        <select onChange={(e)=>props.handleChange(e)}>
           {props.lens.map((len) => {
             return (
               <option key={len.id} name="len_id" value={len.id}>

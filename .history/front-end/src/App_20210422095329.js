@@ -50,13 +50,6 @@ class App extends React.Component {
     });
   }
 
-  handleSelectLen = (e) => {
-    console.log(e.target.value)
-    this.setState({
-      len_id: e.target.value,
-    });
-  }
-
   handleAddCamera = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -252,7 +245,6 @@ class App extends React.Component {
                     lens={this.state.lens}
                     kits={this.state.kits}
                     handleSelectCam={this.handleSelectCam}
-                    handleSelectLen={this.handleSelectLen}
                     handleAddKit={this.handleAddKit}
                     handleChange={this.handleChange}
                   />
