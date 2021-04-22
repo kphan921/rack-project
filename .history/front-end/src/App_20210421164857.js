@@ -169,11 +169,11 @@ class App extends React.Component {
       }),
     };
 
-    fetch("http://localhost:9393/kits/", reqPackage)
+    fetch("http://localhost:9393/cameras/", reqPackage)
       .then((res) => res.json())
-      .then((kit) => {
+      .then((camera) => {
         this.setState({
-          kits: [...this.state.kits, kit],
+          cameras: [...this.state.cameras, camera],
         });
       });
   };

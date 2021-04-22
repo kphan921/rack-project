@@ -32,7 +32,7 @@ class Application
       kit= Kit.create(name: data["name"], camera_id: data["camera_id"], len_id: data["len_id"])
       res_kit = {id: kit.id, name: kit.name, camera_id: kit.camera_id, len_id: kit.len_id}
 
-      return [200, { 'Content-Type' => 'application/json' }, [ res_kit.to_json ]]
+      return [200, { 'Content-Type' => 'application/json' }, [ res_camera.to_json ]]
 
     elsif req.path.match(/cameras/) && req.patch?
       id = req.path.split("/cameras/").last
