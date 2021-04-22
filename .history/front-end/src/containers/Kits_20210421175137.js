@@ -9,7 +9,7 @@ const Kits = (props) => {
         <select onChange={(e)=>props.handleChange(e)}>
           {props.cameras.map((camera) => {
             return (
-              <option key={camera.id} name="camera_id" value={camera.id}>
+              <option name="camera_id" value={camera.id}>
                 {camera.brand} {camera.model}
               </option>
             );
