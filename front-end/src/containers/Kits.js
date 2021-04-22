@@ -4,8 +4,8 @@ import Kit from "../components/Kit.js";
 const Kits = (props) => {
   return (
     <div>
-      <form>
-        <input type="text" name="kit_name" placeholder="Kit Name" onChange={(e)=>props.handleChange(e)}/>
+      <form onSubmit={props.handleAddKit}>
+        <input onChange={(e)=>props.handleChange(e)} type="text" name="name" placeholder="Kit Name" />
         <select onChange={(e)=>props.handleChange(e)}>
           {props.cameras.map((camera) => {
             return (

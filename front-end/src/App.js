@@ -19,15 +19,14 @@ class App extends React.Component {
     image: "",
     focal_length: "",
     aperture: "",
-    camera_id: 0,
-    len_id: 0,
-    kit_name: "",
+    camera_id: 1,
+    len_id: 1,
+    name: "",
   };
 
   componentDidMount() {
     fetch("http://localhost:9393/gears/")
       .then((res) => res.json())
-      // .then(json=> console.log(json))
       .then((json) =>
         this.setState({
           cameras: json.cameras,
@@ -38,6 +37,7 @@ class App extends React.Component {
   }
 
   handleChange = (e) => {
+    console.log(e.target.name, e.target.value)
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -159,11 +159,12 @@ class App extends React.Component {
   handleAddKit = (e) => {
     e.preventDefault();
     e.target.reset();
+    console.log("hi")
     let reqPackage = {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify({
-        kit_name: this.state.kit_name,
+        name: this.state.name,
         camera_id: this.state.camera_id,
         len_id: this.state.len_id,
       }),
@@ -172,6 +173,7 @@ class App extends React.Component {
     fetch("http://localhost:9393/kits/", reqPackage)
       .then((res) => res.json())
       .then((kit) => {
+        console.log(kit)
         this.setState({
           kits: [...this.state.kits, kit],
         });
@@ -179,6 +181,9 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.name)
+    console.log(this.state.camera_id)
+    console.log(this.state.len_id)
     return (
       <div className="App">
         <header className="App-header">
@@ -232,6 +237,7 @@ class App extends React.Component {
                     cameras={this.state.cameras}
                     lens={this.state.lens}
                     kits={this.state.kits}
+                    handleAddKit={this.handleAddKit}
                     handleChange={this.handleChange}
                   />
                 );

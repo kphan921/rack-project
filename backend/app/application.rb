@@ -30,7 +30,7 @@ class Application
     elsif req.path.match(/kits/) && req.post?
       data = JSON.parse req.body.read
       kit= Kit.create(name: data["name"], camera_id: data["camera_id"], len_id: data["len_id"])
-      res_kit = {name: kit.name, camera_id: kit.camera_id, len_id: kit.len_id}
+      res_kit = {name: kit.name, camera: kit.camera, len: kit.len}
 
       return [200, { 'Content-Type' => 'application/json' }, [ res_kit.to_json ]]
 
