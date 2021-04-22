@@ -27,7 +27,7 @@ const Kits = (props) => {
         <input type="submit" value="Add Kit"></input>
       </form>
       {props.kits.map((kit, idx) => 
-        <Kit key={idx+1} id={idx+1} kit={kit} handleDeleteKit={props.handleDeleteKit}/>
+        <Kit key={idx+1} kit={kit} handleDeleteKit={props.handleDeleteKit}/>
       )}
     </div>
   );

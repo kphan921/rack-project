@@ -194,8 +194,8 @@ class App extends React.Component {
       });
   };
 
-  handleDeleteKit = (deleteKit, id) => {
-    fetch("http://localhost:9393/kits/" + id, {
+  handleDeleteKit = (deleteKit) => {
+    fetch("http://localhost:9393/lens/" + deleteKit.id, {
       method: "DELETE",
     });
 
@@ -265,7 +265,6 @@ class App extends React.Component {
                     handleSelectLen={this.handleSelectLen}
                     handleAddKit={this.handleAddKit}
                     handleChange={this.handleChange}
-                    handleDeleteKit={this.handleDeleteKit}
                   />
                 );
               }}
