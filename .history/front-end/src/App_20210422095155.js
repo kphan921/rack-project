@@ -38,6 +38,7 @@ class App extends React.Component {
 
   handleChange = (e) => {
     console.log(e.target.name, e.target.value)
+    debugger
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -46,14 +47,7 @@ class App extends React.Component {
   handleSelectCam = (e) => {
     console.log(e.target.value)
     this.setState({
-      camera_id: e.target.value,
-    });
-  }
-
-  handleSelectLen = (e) => {
-    console.log(e.target.value)
-    this.setState({
-      len_id: e.target.value,
+      "camera_id": e.target.value,
     });
   }
 
@@ -251,8 +245,7 @@ class App extends React.Component {
                     cameras={this.state.cameras}
                     lens={this.state.lens}
                     kits={this.state.kits}
-                    handleSelectCam={this.handleSelectCam}
-                    handleSelectLen={this.handleSelectLen}
+                    handleSelectCam={}
                     handleAddKit={this.handleAddKit}
                     handleChange={this.handleChange}
                   />
