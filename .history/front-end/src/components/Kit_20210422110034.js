@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Kit(props) {
     return (
-        <div className="kit_card2">
         <div className="kit_card">
             <h4>{props.kit.name} </h4>
             <div>
@@ -13,8 +12,8 @@ export default function Kit(props) {
                 <div>{props.kit.len.brand} {props.kit.len.focal_length}, {props.kit.len.aperture} </div>
                 <img src={props.kit.len.image} alt="len" className="stock_image_small"/>
             </div>
-            <button onClick={()=>props.handleDeleteKit(props.kit)}>Remove</button>
-        </div>
+            <button onClick={()=>props.handleDeleteKit(props.kit, props.id)}>Remove</button>
+
         </div>
     )
 }

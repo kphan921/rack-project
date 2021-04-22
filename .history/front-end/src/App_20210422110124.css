@@ -85,10 +85,7 @@ html{
 }
 
 .kit_card{
-  display: flex;
+  display:flexbox;
   align-content: center;
 }
 
-.kit_card2{
- display: block;
-}

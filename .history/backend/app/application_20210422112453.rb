@@ -30,7 +30,7 @@ class Application
     elsif req.path.match(/kits/) && req.post?
       data = JSON.parse req.body.read
       kit= Kit.create(name: data["name"], camera_id: data["camera_id"], len_id: data["len_id"])
-      res_kit = {id:kit.id, name: kit.name, camera: kit.camera, len: kit.len}
+      res_kit = {name: kit.name, camera: kit.camera, len: kit.len}
 
       return [200, { 'Content-Type' => 'application/json' }, [ res_kit.to_json ]]
 
@@ -64,8 +64,8 @@ class Application
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "Task deleted!"}.to_json ]]
 
     elsif req.path.match(/kits/) && req.delete?
-      id = req.path.split("/kits/").last
-      Kit.find(id).delete
+      name = req.path.split("/kits/").last
+      Kit.find_by(name:"#{name}").delete
 
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "Task deleted!"}.to_json ]]
 

@@ -80,15 +80,9 @@ html{
 }
 
 .stock_image_small{
-  height: 140px;
-  width: 140px;
+  height: 100px;
+  width: 100px;
 }
 
-.kit_card{
-  display: flex;
-  align-content: center;
-}
+.kit_card{}
 
-.kit_card2{
- display: block;
-}

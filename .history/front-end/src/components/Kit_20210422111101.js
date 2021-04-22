@@ -13,7 +13,7 @@ export default function Kit(props) {
                 <div>{props.kit.len.brand} {props.kit.len.focal_length}, {props.kit.len.aperture} </div>
                 <img src={props.kit.len.image} alt="len" className="stock_image_small"/>
             </div>
-            <button onClick={()=>props.handleDeleteKit(props.kit)}>Remove</button>
+            <button onClick={()=>props.handleDeleteKit(props.kit, props.id)}>Remove</button>
         </div>
         </div>
     )
